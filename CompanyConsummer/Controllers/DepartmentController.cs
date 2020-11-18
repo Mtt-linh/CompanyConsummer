@@ -1,23 +1,65 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CompanyConsummer.Models;
 
-namespace CompanyConsummer.Controllers
+namespace CompanyConsumer.Controllers
 {
     public class DepartmentController : Controller
     {
         // GET: Department
-        public ActionResult Index()
+
+
+
+
+
+
+        ServiceClient servicesClient = new ServiceClient();
+        // GET: Department
+        public ViewResult Index(string sortOrder, string search, string currentFilter, int? page)
         {
-            return View();
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+          
+
+            if (search != null)
+            {
+                page = 1; // nếu search có giá trị trả về page = 1
+            }
+            else
+            {
+                search = currentFilter; // nếu có thì render phần dữ liệu search ra
+            }
+            ViewBag.CurrentFilter = search;
+            var departments = from s in servicesClient.getAllDepartment() select s;
+            if (!String.IsNullOrEmpty(search)) // check nếu search string có thì in ra hoặc không thì không in ra
+            {
+                departments = departments.Where(s => s.DepartmentName.Contains(search) || s.DepartmentName.Contains(search)); // contains là để check xem lastname hoặc firstName có chứa search string ở trên
+            }
+            switch (sortOrder)
+            {
+                case "name desc":
+                    departments = departments.OrderByDescending(s => s.DepartmentName); // các case tương đương với các cột muốn sort
+                    break;
+
+                default:
+                    departments = departments.OrderBy(s => s.DepartmentName);
+                    break;
+            }
+
+            return View(departments.ToList());
+
         }
 
         // GET: Department/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var department = servicesClient.getAllDepartment().Where(b => b.DepartmentID == id).FirstOrDefault();
+            return View(department);
+
         }
 
         // GET: Department/Create
@@ -28,10 +70,17 @@ namespace CompanyConsummer.Controllers
 
         // POST: Department/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Department newDepartment)
         {
             try
             {
+                if (ModelState.IsValid)
+                {
+                    servicesClient.CreateDepartment(newDepartment);
+                    return RedirectToAction("Index", "Department");
+                }
+
                 // TODO: Add insert logic here
 
                 return RedirectToAction("Index");

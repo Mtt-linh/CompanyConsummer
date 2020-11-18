@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CompanyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:63272/CompanyService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:63272/CompanyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:63272/CompanyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CompanyService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICompanyService_getEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployees" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_getEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_createEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:createEmployee" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_createEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_editEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:editEmployee" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_editEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_deleteEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_deleteEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_getDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDepartments" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_getDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_createDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:createDepartment" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_createDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_editDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:editDepartment" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_editDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_deleteDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteDepartment" />
+  </wsdl:message>
+  <wsdl:message name="ICompanyService_deleteDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICompanyService">
+    <wsdl:operation name="getEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/getEmployees" message="tns:ICompanyService_getEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/getEmployeesResponse" message="tns:ICompanyService_getEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/createEmployee" message="tns:ICompanyService_createEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/createEmployeeResponse" message="tns:ICompanyService_createEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="editEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/editEmployee" message="tns:ICompanyService_editEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/editEmployeeResponse" message="tns:ICompanyService_editEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/deleteEmployee" message="tns:ICompanyService_deleteEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/deleteEmployeeResponse" message="tns:ICompanyService_deleteEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/getDepartments" message="tns:ICompanyService_getDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/getDepartmentsResponse" message="tns:ICompanyService_getDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/createDepartment" message="tns:ICompanyService_createDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/createDepartmentResponse" message="tns:ICompanyService_createDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="editDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/editDepartment" message="tns:ICompanyService_editDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/editDepartmentResponse" message="tns:ICompanyService_editDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/deleteDepartment" message="tns:ICompanyService_deleteDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/deleteDepartmentResponse" message="tns:ICompanyService_deleteDepartment_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICompanyService" type="tns:ICompanyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getEmployees">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/getEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployee">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/createEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editEmployee">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/editEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/deleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartments">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/getDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createDepartment">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/createDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editDepartment">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/editDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDepartment">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/deleteDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CompanyService">
+    <wsdl:port name="BasicHttpBinding_ICompanyService" binding="tns:BasicHttpBinding_ICompanyService">
+      <soap:address location="http://localhost:63272/CompanyService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
